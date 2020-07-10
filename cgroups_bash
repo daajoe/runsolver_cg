@@ -12,7 +12,7 @@ Memory Nodes are used by a process or set of processes]
 		$ echo PID > cpuset/group1/tasks
 	To check:
 		$ cat /proc/PID/status | grep '_allowed' 
-	Sometimes you need to assign one or all memory nodes if a no space left on device 		error occurs
+	Sometimes you need to assign one or all memory nodes if a no space left on device error occurs
 		$ echo 0 > cpuset/group1/cpuset.mems [Allocates memory node 0]
 	
 	To check CPUs and Memory Nodes in a cpuset
@@ -76,5 +76,9 @@ If there shows the error message "bash: echo: write error: No space left on devi
 cat /proc/PID/cgroup - gives the cgroup to which the process with PID is attached to (in cgroup v2)
 
 cat /proc/PID/cpuset - gives the cgroup to which the process with PID is attached to (in cgroup v1)
+
+In the cgroup.procs file, each such process apears only once (listed by its TGID).  In the tasks file, each thread appears once (listed by its PID).
+
+procs is a list of (unique) TGIDs, while tasks is a list of PIDs.
 	
 
