@@ -16,8 +16,8 @@ create_user_cgroups(user)
 
 
 cg=Cgroup('testing')
-cg.set_cpu_limit(50) #gives 50% of CPU shares #gives 50% of CPU shares (CPU Bandwidth)
-cg.set_memory_limit(500) # sets a memory of 500 Megabytes
+cg.set_cpu_limit(70) #gives 70% of CPU shares #gives 50% of CPU shares (CPU Bandwidth)
+cg.set_memory_limit(100) # sets a memory of 100 Megabytes
 """ run_once=False
 if not run_once:
     ff=subprocess.call('~/Project_runsolver_cg/Coding/bashfile.sh')
@@ -26,21 +26,23 @@ if not run_once:
 def in_cgroup():
     pid=os.getpid()
     cg=Cgroup("testing")
-    #cg.set_cpu_limit(50) #gives 50% of CPU shares (CPU Bandwidth)
-    #cg.set_memory_limit(500) # sets a memory of 500 Megabytes
+    #cg.set_cpu_limit(70) #gives 50% of CPU shares (CPU Bandwidth)
+    #cg.set_memory_limit(100) # sets a memory of 500 Megabytes
     cg.add(pid)
     print(pid)
 
 
 #to read
 cmd=['echo','hey']
+cmd2=['ls']
 #process = subprocess.Popen(cmd, preexec_fn=in_cgroup, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
 process = subprocess.Popen(cmd, preexec_fn=in_cgroup)
+process2 = subprocess.Popen(cmd2, preexec_fn=in_cgroup)
 #process.wait()
 #stdout, stderr = process.communicate()
 #print (stdout, stderr)
 #cg=Cgroup('testing')
-cg.add(2958) 
+#cg.add(2958) #to add other PID while the previous process is running
 #cg.remove(pid)#remove pid from tasks
 #cg.set_cpu_limit() #Reset the cpu limit
 #cg.set_memory_limit('testing') #reset the memory limit
