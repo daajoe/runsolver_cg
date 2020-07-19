@@ -1,6 +1,0 @@
-cgroups_1 file:
-	library=cgroups
-	Can only handle cpu (cpu bandwidth or the minimum % of CPU time) and memory cgroups
-	Some problems with giving root permissions
-	
-
