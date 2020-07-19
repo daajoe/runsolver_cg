@@ -1,52 +1,45 @@
-#Requires to install by pip the library cgroups
+#Requires to install by pip the library cgroups #Not available in conda or its channels
 #pip install cgroups
 
 
 import os
 import subprocess
+import psutil
 
 from cgroups import Cgroup
-from cgroups.user import create_user_cgroups
-
-#requires root permission to setup
-user=os.getlogin()
-create_user_cgroups(user)
-
-#permiss=subprocess.Popen('~/Project_runsolver_cg/Coding/permission.sh', shell=True)
+#from cgroups.user import create_user_cgroups
 
 
+#A subcgroup 'testing' will be made under the root user
 cg=Cgroup('testing')
-cg.set_cpu_limit(70) #gives 70% of CPU shares #gives 50% of CPU shares (CPU Bandwidth)
+cg.set_cpu_limit(70) #gives 70% of CPU shares #gives 50% of CPU shares (CPU Bandwidth) #total is 1024 units
 cg.set_memory_limit(100) # sets a memory of 100 Megabytes
-""" run_once=False
-if not run_once:
-    ff=subprocess.call('~/Project_runsolver_cg/Coding/bashfile.sh')
-    run_once=True """
 
-def in_cgroup():
-    pid=os.getpid()
+
+process_pid=None
+def in_cgroup(p_pid):
     cg=Cgroup("testing")
-    #cg.set_cpu_limit(70) #gives 50% of CPU shares (CPU Bandwidth)
-    #cg.set_memory_limit(100) # sets a memory of 500 Megabytes
-    cg.add(pid)
-    print(pid)
+    cg.add(p_pid)
+    print("The pid added to the subcgroup:",p_pid)
+
+#cmd=['echo','hey']
+#cmd2=['ls']
+tasklist=['firefox']
+for proc in psutil.process_iter():
+    if any(task in proc.name() for task in tasklist):
+        #print(proc.pid)
+        process_pid=proc.pid
+        
+in_cgroup(process_pid)
 
 
-#to read
-cmd=['echo','hey']
-cmd2=['ls']
-#process = subprocess.Popen(cmd, preexec_fn=in_cgroup, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
-process = subprocess.Popen(cmd, preexec_fn=in_cgroup)
-process2 = subprocess.Popen(cmd2, preexec_fn=in_cgroup)
-#process.wait()
-#stdout, stderr = process.communicate()
-#print (stdout, stderr)
-#cg=Cgroup('testing')
 #cg.add(2958) #to add other PID while the previous process is running
-#cg.remove(pid)#remove pid from tasks
+#cg.remove(pid) #remove pid from tasks
+
 #cg.set_cpu_limit() #Reset the cpu limit
 #cg.set_memory_limit('testing') #reset the memory limit
+
 #cg.delete() #delete the cgroup
 
-print(cg.cpu_limit)
-print(cg.memory_limit)
+print("CPU limit given:",cg.cpu_limit) #print the cpu_limit
+print("Memory limit given:",cg.memory_limit) #print the memory_limit
