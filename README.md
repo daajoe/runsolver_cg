@@ -6,7 +6,7 @@ cgroups_1 file:
 
 setup1 file:
 
-	Solved problems with user access. Run the setup1.py only once as a root user. Subcgroups can be amde and changed without root access.
+	Solved problems with user access for the cgroup_1 file. Run the setup1.py only once as a root user. Subcgroups can be amde and changed without root access.
 	
 cgroups_2 file:
 	
