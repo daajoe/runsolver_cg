@@ -8,17 +8,17 @@ import psutil
 
 from cgroups import Cgroup
 #from cgroups.user import create_user_cgroups
-
+user=os.getlogin()
 
 #A subcgroup 'testing' will be made under the root user
-cg=Cgroup('testing')
-cg.set_cpu_limit(70) #gives 70% of CPU shares #gives 50% of CPU shares (CPU Bandwidth) #total is 1024 units
+cg=Cgroup('test')
+cg.set_cpu_limit(70) #gives 70% of CPU shares #gives 70% of CPU shares (CPU Bandwidth) #total is 1024 units
 cg.set_memory_limit(100) # sets a memory of 100 Megabytes
 
 
 process_pid=None
 def in_cgroup(p_pid):
-    cg=Cgroup("testing")
+    cg=Cgroup("test")
     cg.add(p_pid)
     print("The pid added to the subcgroup:",p_pid)
 
@@ -41,5 +41,5 @@ in_cgroup(process_pid)
 
 #cg.delete() #delete the cgroup
 
-print("CPU limit given:",cg.cpu_limit) #print the cpu_limit
-print("Memory limit given:",cg.memory_limit) #print the memory_limit
+print("CPU limit given:",cg.cpu_limit,'%') #print the cpu_limit
+print("Memory limit given:",cg.memory_limit,'MB') #print the memory_limit
