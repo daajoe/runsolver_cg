@@ -28,6 +28,15 @@ Set CPU Share: [Maximum 1024 units] [the min % of CPU time the process gets when
 		$ mkdir -p cpu/group1 
 		$ echo 250 > cpu/group1/cpu.shares
 		$ echo PID > cpu/group1/tasks
+	
+	The above sets soft limits
+	
+	For hard limits
+		Make usage of cpu.cfs_quota_us and cpu.cfs_period_us
+	
+	For showing how much CPU time is consumed by all tasks in a group
+		cpuacct.usage or cpuacct.usage_percpu
+		
 
 Set memory limit: [Memory given to a particular process]
 	make a group in sys/fs/cgroup/memory [Lets call it group1]
@@ -77,8 +86,11 @@ cat /proc/PID/cgroup - gives the cgroup to which the process with PID is attache
 
 cat /proc/PID/cpuset - gives the cgroup to which the process with PID is attached to (in cgroup v1)
 
-In the cgroup.procs file, each such process apears only once (listed by its TGID).  In the tasks file, each thread appears once (listed by its PID).
+In the cgroup.procs file, each such process apears only once (listed by its TGID).  In the tasks file, each thread appears once (listed by its PID). So tasks only contains processes, but cgroup.procs contains threads. If one thread of a particular thread group is added to this, then the entire thread group is automatically assigned to it.
 
 procs is a list of (unique) TGIDs, while tasks is a list of PIDs.
-	
+
+pidof SOMENAMEOFPROCESS - returns pid
+
+ps PIDOFAPROCESS - returns a process associated with that pid
 
