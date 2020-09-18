@@ -37,25 +37,29 @@ path_cpuset="/sys/fs/cgroup/cpuset/"+name_cg+"/tasks"
 #print(path_cpuset)
 path_cpu="/sys/fs/cgroup/cpu/"+name_cg+"/tasks"
 path_memory="/sys/fs/cgroup/memory/"+name_cg+"/tasks"
+path_cpuset_mems="/sys/fs/cgroup/cpuset/"+name_cg+"/cpuset.mems"
 
 tasklist=['gnome-mines']
 for proc in psutil.process_iter():
     if any(task in proc.name() for task in tasklist):
-        #print(proc.pid)
+        print(proc.pid)
+        print(proc)
+        #print(proc)
+        #print(proc.cpu_times())
         pid=str(proc.pid)
-""" cmd1='echo '+pid+' > /sys/fs/cgroup/cpuset/test/tasks'
-process = subprocess.Popen(cmd1, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, shell=True)
-stdout, stderr = process.communicate()
-print (stdout.strip('\n'), stderr) """
-""" cmd2=["echo",pid,">",path_cpu]
-cmd3=["echo",pid,">",path_memory] """
-#proc=subprocess.run(cmd1, shell=True)
-""" subprocess.run(cmd2)
-subprocess.run(cmd3) """
-""" cmd='echo '+pid+' > /sys/fs/cgroup/cpuset/prac/tasks'
-process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, shell=True)
-stdout, stderr = process.communicate()
-print (stdout.strip('\n'), stderr) """
+#print(psutil.cpu_freq())
+cmd="echo 0 > "+path_cpuset_mems
+subprocess.run(cmd, shell=True)
+
+cmd1='echo '+pid+' > '+path_cpuset
+print("Added PID",pid,"to cpuset")
+cmd2='echo '+pid+' > '+path_cpu
+print("Added PID",pid,"to cpu")
+cmd3='echo '+pid+' > '+path_memory
+print("Added PID",pid,"to memory")
+subprocess.run(cmd1, shell=True)
+subprocess.run(cmd2, shell=True)
+subprocess.run(cmd3, shell=True)
 
 
 while(True):
@@ -75,6 +79,11 @@ while(True):
 
     #reports the total CPU time (in nanoseconds) on each CPU core for all tasks in the cgroup
     print("Total CPU time per core:",cpuacct.controller.usage_percpu)
+
+    #wall clock time or real time elapsed
+    cmd_time='command ps -p '+pid+' --no-headers -o etime'
+    proc=subprocess.run(cmd_time, shell=True, capture_output=True, universal_newlines=True)
+    print("Wall clock time:",proc.stdout.strip())
 
     #shows the usage of memory
     print("Memory used:",memory.controller.usage_in_bytes)
