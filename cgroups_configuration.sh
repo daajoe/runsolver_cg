@@ -55,6 +55,6 @@ else
     #else
         #echo -e "\nSome probelms exist in setting up cgroups. You are using a distrubution other than Ubuntu. Please adjust your boot loader configuration. Refer to https://github.com/sosy-lab/benchexec/blob/master/doc/INSTALL.md"
     #fi
-    echo ""
+    echo "Restart your system"
 fi
 
