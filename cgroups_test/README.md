@@ -1,4 +1,5 @@
-# runsolver_cg
+# cgroups_test
+A bit of experimentation with cgroups is done here.
 
 main.py file:
 	
