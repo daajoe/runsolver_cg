@@ -1,19 +1,19 @@
 #!/bin/bash
-if [ $(getent group benchnose) ]
+if [ $(getent group benchexec) ]
 then
-    echo "benchnose group already exists"
-    grep_output=`getent group benchnose | grep $USER`
+    echo "benchexec group already exists"
+    grep_output=`getent group benchexec | grep $USER`
     if [[ ! $grep_output ]] 
     then
-        sudo adduser $USER benchnose
-        echo "User '$USER' added to benchnose"
+        sudo adduser $USER benchexec
+        echo "User '$USER' added to benchexec"
     else
-        echo "User '$USER' already exists in benchnose group"
+        echo "User '$USER' already exists in benchexec group"
     fi   
 else
-    sudo groupadd benchnose
-    sudo adduser $USER benchnose
-    echo "benchnose group created and $USER added to it"
+    sudo groupadd benchexec
+    sudo adduser $USER benchexec
+    echo "benchexec group created and $USER added to it"
 fi
 
 
