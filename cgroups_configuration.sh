@@ -1,4 +1,10 @@
 #!/bin/bash
+trap 'catch' ERR
+
+catch() {
+    echo "Restart your system"
+}
+
 if [ $(getent group benchexec) ]
 then
     echo "benchexec group already exists"
