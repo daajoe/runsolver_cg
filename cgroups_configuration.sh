@@ -1,12 +1,21 @@
 #!/bin/bash
-grep_output=`getent group benchexec | grep $USER`
-if [[ ! $grep_output ]] 
+if [ $(getent group benchnose) ]
 then
-    sudo adduser $USER benchexec
-    echo "User '$USER' added to benchexec"
+    echo "benchnose group already exists"
+    grep_output=`getent group benchnose | grep $USER`
+    if [[ ! $grep_output ]] 
+    then
+        sudo adduser $USER benchnose
+        echo "User '$USER' added to benchnose"
+    else
+        echo "User '$USER' already exists in benchnose group"
+    fi   
 else
-    echo "User '$USER' already exists"
+    sudo groupadd benchnose
+    sudo adduser $USER benchnose
+    echo "benchnose group created and $USER added to it"
 fi
+
 
 file=/etc/systemd/system/benchexec-cgroup.service
 if [[ ! -f  $file ]]
@@ -46,6 +55,6 @@ else
     #else
         #echo -e "\nSome probelms exist in setting up cgroups. You are using a distrubution other than Ubuntu. Please adjust your boot loader configuration. Refer to https://github.com/sosy-lab/benchexec/blob/master/doc/INSTALL.md"
     #fi
-    echo -e "\nThere might be something wrong with the configuration"
+    #echo -e "\nThere might be something wrong with the configuration"
 fi
 
