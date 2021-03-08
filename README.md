@@ -8,6 +8,6 @@ It consists of 3 programs:
 - benchexec: For benchmarking several executions of a tool; and
 - table-generator: For generating result tables.
 
-1. [Installation guide for BenchExec](BenchExec/documentation.md)
-2. [Run instances of *runexec*](BenchExec/run_instances_runexec.md)
-3. [Important infomration and Limitations with regards to BenchExec](BenchExec/info_limit.md)
+1. [Installation guide for BenchExec](BenchExec_usage/documentation.md)
+2. [Run instances of *runexec*](BenchExec_usage/run_instances_runexec.md)
+3. [Important infomration and Limitations with regards to BenchExec](BenchExec_usage/info_limit.md)
