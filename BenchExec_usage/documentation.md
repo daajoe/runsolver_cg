@@ -49,6 +49,8 @@ Assuming you have systemd,
 
 In some Debian kernels the memory cgroup controller is disabled by default and can be enabled by setting cgroup_enable=memory on the kernel command line, similar to swapaccount=1 above.
 
+[A shell script that configures cgroups](cgroups_configuration.sh)
+
 The following dependencies will be installed upon installing BenchExec:
 - benchexec
 - lxcfs
