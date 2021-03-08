@@ -10,4 +10,4 @@ It consists of 3 programs:
 
 1. [Installation guide for BenchExec](BenchExec_usage/documentation.md)
 2. [Run instances of *runexec*](BenchExec_usage/run_instances_runexec.md)
-3. [Important informration and limitations with regards to BenchExec](BenchExec_usage/info_limit.md)
+3. [Important information and limitations with regards to BenchExec](BenchExec_usage/info_limit.md)
