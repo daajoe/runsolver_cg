@@ -5,7 +5,7 @@ def send_list(line):
 myList=[]
 i=0
 
-while i < 100:
+while i < 1000:
     f=open("survey_updated.txt")
     i+=1
     time.sleep(2)
