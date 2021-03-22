@@ -1,0 +1,3 @@
+2021-03-16 14:02:19,876 - INFO - LXCFS is not available, some host information like the uptime leaks into the container.
+2021-03-16 14:02:19,898 - INFO - Starting command python3 test_cpu.py
+2021-03-16 14:02:19,898 - INFO - Writing output to output.log
