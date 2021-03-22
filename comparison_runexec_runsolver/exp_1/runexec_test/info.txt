@@ -1,0 +1,3 @@
+The experiment is run on for 4 cores. An 100% CPU time is restricted to all the cores for 1 hour, and this is repeated 50 times. 
+The command used is: runexec --timelimit 14400 python3 test_cpu.py
+A shell script is used to run this 50 times.
