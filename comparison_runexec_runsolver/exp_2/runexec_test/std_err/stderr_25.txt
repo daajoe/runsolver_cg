@@ -1,0 +1,3 @@
+2021-03-25 04:27:37,283 - INFO - LXCFS is not available, some host information like the uptime leaks into the container.
+2021-03-25 04:27:37,306 - INFO - Starting command python3 test_memory.py
+2021-03-25 04:27:37,306 - INFO - Writing output to output/output_25
