@@ -1,0 +1,3 @@
+The experiment is run on for testing memory (with swap) on runexec, with the memory limit being 8GB (8589934592). It is repeated 50 times. 
+The command used is: runexec --memlimit 8589934592 python3 test_memory.py
+A shell script is used to run this 50 times.

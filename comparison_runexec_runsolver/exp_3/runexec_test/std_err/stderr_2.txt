@@ -1,0 +1,4 @@
+2021-03-28 00:55:26,212 - INFO - LXCFS is not available, some host information like the uptime leaks into the container.
+2021-03-28 00:55:26,233 - INFO - Starting command python3 test_memory.py
+2021-03-28 00:55:26,234 - INFO - Writing output to output/output_2
+2021-03-28 01:07:02,812 - WARNING - System has swapped during benchmarking. Benchmark results are unreliable!
