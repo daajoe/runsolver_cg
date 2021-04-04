@@ -1,0 +1,4 @@
+2021-04-04 07:22:10,084 - INFO - LXCFS is not available, some host information like the uptime leaks into the container.
+2021-04-04 07:22:10,114 - INFO - Starting command ./test_run.sh
+2021-04-04 07:22:10,114 - INFO - Writing output to output/output_15.txt
+2021-04-04 07:38:53,507 - WARNING - System has swapped during benchmarking. Benchmark results are unreliable!
