@@ -1,0 +1,12 @@
+starttime=2021-04-05T23:35:15.885410+02:00
+terminationreason=cputime
+exitsignal=9
+walltime=1802.1873695775867s
+cputime=7204.009716978s
+cputime-cpu0=1799.919005655s
+cputime-cpu1=1801.427844857s
+cputime-cpu2=1801.460552474s
+cputime-cpu3=1801.202313992s
+memory=17248256B
+blkio-read=0B
+blkio-write=0B
