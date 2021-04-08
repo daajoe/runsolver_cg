@@ -1,0 +1,3 @@
+The experiment is run on for testing memory (without swap), with the memory limit being 5GB. It is repeated 50 times. 
+The command used for runexec is: runexec --memlimit 5368709120 python3 test_memory.py
+The command used for runsolver is: ./runsolver -M 5120 python3 test_memory.py

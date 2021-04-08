@@ -1,0 +1,5 @@
+This experiment is to see how the tools behave when the number of processes running are double the number of physical processors.
+We have 8 processes running in 4 physical processors where the restriction on CPU time of 30 mins is being tested.
+It is run 50 times.
+The command for runexec is: runexec --timelimit 7200s python3 test_cpu.py
+The command for runsolver is: ./runsolver -C 7200s python3 test_cpu.py
