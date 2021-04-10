@@ -1,0 +1,4 @@
+2021-04-10 18:40:19,850 - INFO - LXCFS is not available, some host information like the uptime leaks into the container.
+2021-04-10 18:40:19,874 - INFO - Starting command python3 test.py
+2021-04-10 18:40:19,874 - INFO - Writing output to output/output_2.txt
+2021-04-10 18:55:20,895 - WARNING - Killing process 2198778 due to wall time timeout.
