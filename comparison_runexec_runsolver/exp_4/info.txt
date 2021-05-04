@@ -1,5 +1,5 @@
 This experiment is to test that whether after running some time the runsolver solves the sampling problem.
 First the tool is allowed to run for 15 mins CPU time then it is given a memory limitation of 5GB. The memory is consumed rapidly.
-It is run 50 times.
+It is run 15 times.
 The command used for runexec is: runexec --memlimit 5368709120 test.sh
 The command used for runsolver is: ./runsolver -M 5120 test.sh
