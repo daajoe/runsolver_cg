@@ -1,0 +1,6 @@
+The experiment is conducted enforcing a wall time limit of 900s for a program while simultaneously ffmpeg runs heavily in the background. 
+The ffmpeg converts videos continuously in a loop. 
+The experiment is done 10 times.
+
+The command for runexec is:runexec --walltimelimit 900s python3 test.py
+The command for runsolver is: /runsolver -W 900s python3 test.py

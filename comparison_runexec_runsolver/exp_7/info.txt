@@ -1,0 +1,6 @@
+Same experiment as the above (Experiment 7) with ffmpeg now running at intervals. 
+It runs for 60s and then sleeps for 60s and then again runs for 60s, and so on.
+The command for runexec is: runexec --walltimelimit 900s python3 test.py
+&& ffmpeg -i sampleVideo.mp4 sampleVideo_converted.avi
+The command for runsolver is: ./runsolver -W 900s python3 test.py
+&& ffmpeg -i sampleVideo.mp4 sampleVideo_converted.avi
