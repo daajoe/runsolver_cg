@@ -1,0 +1,7 @@
+This is experiment was done to check if cgroups slows down the speed of a process, i.e. increases the runtime.
+The comparison was done running ffmpeg 100 times.
+Once with runsolver and again as standalone.
+The command for runexec is:
+runexec --output output/output.txt ./ffmpeg.sh > stdout_runexec/stdout.txt 2>stderr_runexec/stderr.txt
+The command for standalone is:
+./ffmpeg.sh > output/stdout.log 2>output/stderr.log
