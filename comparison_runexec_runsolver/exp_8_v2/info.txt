@@ -1,6 +1,6 @@
 This experiment is similar to experiement 8.
-A bigger conversion file is chosen to increase the effective runtime and is repeated 10 times.
-The comparison was done running ffmpeg 100 times.
+A bigger conversion file is chosen to increase the effective runtime and also to only run once instead of 100 times.
+The experiment is repeated 10 times.
 Once with runsolver and again as standalone.
 The command for runexec is:
 runexec --output output/output.txt ./ffmpeg.sh > stdout_runexec/stdout.txt 2>stderr_runexec/stderr.txt
