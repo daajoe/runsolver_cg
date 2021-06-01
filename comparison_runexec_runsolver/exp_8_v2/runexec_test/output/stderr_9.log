@@ -1,0 +1,4 @@
+2021-06-01 21:50:24,539 - INFO - LXCFS is not available, some host information like the uptime leaks into the container.
+2021-06-01 21:50:24,565 - INFO - Starting command ./ffmpeg.sh
+2021-06-01 21:50:24,566 - INFO - Writing output to output/output_9.log
+2021-06-01 22:32:39,945 - WARNING - System has swapped during benchmarking. Benchmark results are unreliable!
